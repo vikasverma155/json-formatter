@@ -263,7 +263,7 @@
                   escapedString = JSON.stringify(value)
               ;
               escapedString = escapedString.substring(1, escapedString.length-1) ; // remove quotes
-              if (value[0] === 'h' && value.substring(0, 4) === 'http') { // crude but fast - some false positives, but rare, and UX doesn't suffer terribly from them.
+              if ((value[0] === 'h' && value.substring(0, 4) === 'http') || value[0] === '/') { // crude but fast - some false positives, but rare, and UX doesn't suffer terribly from them.
                 var innerStringA = document.createElement('A') ;
                 innerStringA.href = value ;
                 innerStringA.innerText = escapedString ;
